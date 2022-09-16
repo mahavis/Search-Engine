@@ -1,3 +1,7 @@
+function formatDate(datestamp) {
+  return "Friday 14:22";
+}
+
 function showTemperature(response) {
   let temperature = document.querySelector("#currentTemp");
   temperature.innerHTML = Math.round(response.data.main.temp);
@@ -9,6 +13,8 @@ function showTemperature(response) {
   humidity.innerHTML = response.data.main.humidity;
   let wind = document.querySelector("#speed");
   wind.innerHTML = Math.round(response.data.wind.speed);
+  let date = document.querySelector("#date");
+  date.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 let apiKey = "4d6942c0f6f8b66b251e082acf3b3d83";

@@ -38,7 +38,8 @@ function showTemperature(response) {
 }
 
 let apiKey = "4d6942c0f6f8b66b251e082acf3b3d83";
+let city = "The Hague";
 let units = "metric";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=The Hague&appid=${apiKey}&units=${units}`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
 axios.get(apiUrl).then(showTemperature);

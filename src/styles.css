@@ -40,20 +40,20 @@ li {
   margin-bottom: 20px;
 }
 
-.weather-icon img {
+.weather-temperature img {
   margin-right: 5px;
   height: 64px;
   width: 64px;
 }
 
-.weather-icon strong {
+.weather-temperature strong {
   color: #202124;
   font-size: 64px;
   font-weight: 400;
   line-height: 1;
 }
 
-.weather-icon .units {
+.weather-temperature .units {
   position: relative;
   font-size: 16px;
   top: -34px;

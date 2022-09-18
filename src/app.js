@@ -23,8 +23,9 @@ function formatDate(timestamp) {
 }
 
 function showTemperature(response) {
+  celsiusTemperature = response.data.main.temp;
   let temperature = document.querySelector("#currentTemp");
-  temperature.innerHTML = Math.round(response.data.main.temp);
+  temperature.innerHTML = Math.round(celsiusTemperature);
   let city = document.querySelector("#currentCity");
   city.innerHTML = response.data.name;
   let description = document.querySelector("#description");
@@ -57,7 +58,28 @@ function search(city) {
   axios.get(apiUrl).then(showTemperature);
 }
 
-search("The Hague");
+function FahrenheitConversion(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#currentTemp");
+  let fahrenheit = celsiusTemperature * 1.8 + 32;
+  temperature.innerHTML = Math.round(fahrenheit);
+}
+
+function celsiusConversion(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#currentTemp");
+  temperature.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let convertFahrenheit = document.querySelector("#convert-fahrenheit");
+convertFahrenheit.addEventListener("click", FahrenheitConversion);
+
+let convertCelsius = document.querySelector("#convert-celsius");
+convertCelsius.addEventListener("click", celsiusConversion);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+search("The Hague");
